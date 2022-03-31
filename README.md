@@ -1,16 +1,12 @@
-# task2_app
+# Task2
 
-A new Flutter project.
+Ishga kirishda kod yozish texnikasi, git, plymarket va boshqa ko'nikmalarni tekshirishganda shu proyektni play marketdagi linkini va kodlarini beraman.
 
-## Getting Started
+Bu proyektni keyinchalik video orqali noldan tayyorlashni tushuntiraman.
 
-This project is a starting point for a Flutter application.
+## Kerakli resurslar
+- [Google Playdan yuklash](https://play.google.com/store/apps/details?id=com.abbos2101.task2_app)
+- [Dizayn-Figmada](https://www.figma.com/file/b7R3Ltl5Ou9TkpLH6FkKLg/Task2?node-id=0%3A1)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Ishlab turgan namuna ko'rinish
+[![pub package](https://github.com/abbos2101/dropdown_task2_app/blob/master/git_resources/intro.gif)](https://github.com/abbos2101/dropdown_task2_app/blob/master/git_resources/intro.gif)
