@@ -11,6 +11,7 @@ class MainInitialState extends MainState {
   final bool regEnabled;
   final bool disEnabled;
   final bool orgEnabled;
+  final bool btnEnabled;
 
   const MainInitialState({
     required this.region,
@@ -19,6 +20,7 @@ class MainInitialState extends MainState {
     this.regEnabled = true,
     this.disEnabled = false,
     this.orgEnabled = false,
+    this.btnEnabled = false,
   });
 
   @override
@@ -29,5 +31,6 @@ class MainInitialState extends MainState {
         regEnabled,
         disEnabled,
         orgEnabled,
+        btnEnabled,
       ];
 }

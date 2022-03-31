@@ -5,6 +5,7 @@ import 'package:task2_app/data/models/simple_model.dart';
 import 'package:task2_app/data/utils/colors.dart';
 import 'package:task2_app/di/di.dart';
 import 'package:task2_app/dialogs/custom_bottom_list_dialog.dart';
+import 'package:task2_app/dialogs/custom_message_dialog.dart';
 import 'package:task2_app/widgets/custom_appbar.dart';
 import 'package:task2_app/widgets/custom_button.dart';
 import 'package:task2_app/widgets/custom_dropdown.dart';
@@ -37,23 +38,23 @@ class _MainPageState extends State<MainPage> {
         child: Scaffold(
           backgroundColor: MyColors.background,
           appBar: const CustomAppbar(text: "TASK 2"),
-          body: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.all(20),
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: MyColors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: BlocBuilder<MainBloc, MainState>(
-                      builder: (context, state) {
-                        if (state is MainInitialState) {
-                          return Column(
+          body: BlocBuilder<MainBloc, MainState>(
+            builder: (context, state) {
+              if (state is MainInitialState) {
+                return Column(
+                  children: [
+                    Expanded(
+                      child: SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        child: Container(
+                          width: double.infinity,
+                          margin: const EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: MyColors.white,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomDropdown(
@@ -116,22 +117,33 @@ class _MainPageState extends State<MainPage> {
                                 },
                               ),
                             ],
-                          );
-                        }
-                        throw Exception("$state is not fount");
-                      },
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 100,
-                padding: const EdgeInsets.all(20),
-                color: MyColors.white,
-                child: const CustomButton(text: "Boshlash"),
-              ),
-            ],
+                    Container(
+                      width: double.infinity,
+                      height: 100,
+                      padding: const EdgeInsets.all(20),
+                      color: MyColors.white,
+                      child: CustomButton(
+                        text: "Boshlash",
+                        enabled: state.btnEnabled,
+                        onTap: () {
+                          CustomMessageDialog.show(
+                            context,
+                            content: "Viloyat: ${state.region.title}\n\n"
+                                "Tuman: ${state.district.title}\n\n"
+                                "Bo'lim: ${state.organization.title}\n",
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              }
+              throw Exception("$state is not fount");
+            },
           ),
         ),
       ),

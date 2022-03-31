@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:task2_app/data/utils/theme.dart';
 import 'package:task2_app/di/di.dart';
 import 'package:task2_app/pages/main/main_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runZonedGuarded(
-    () async {
-      await setup();
-      runApp(const MyApp());
-    },
+    () => runApp(const MyApp()),
     (error, stack) {
       //insert crash analytics
     },
@@ -23,9 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Task2',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: MyThemes.light(),
+      darkTheme: MyThemes.dark(),
       home: const MainPage(),
     );
   }
