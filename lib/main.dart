@@ -13,8 +13,6 @@ void main() async {
       //insert crash analytics
     },
   );
-
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
